@@ -1,10 +1,20 @@
+/**
+ * Global CSS Styles
+ * 
+ * This file contains global styles and CSS variables for the application.
+ * It includes Tailwind CSS and defines theme variables for light and dark modes.
+ */
+
+/* Import Tailwind CSS framework */
 @import "tailwindcss";
 
+/* Define CSS variables for light mode */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Define theme variables that reference the root variables */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,6 +22,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Define CSS variables for dark mode when user prefers dark color scheme */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,6 +30,7 @@
   }
 }
 
+/* Apply base styles to the body element */
 body {
   background: var(--background);
   color: var(--foreground);

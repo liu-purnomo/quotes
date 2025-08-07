@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# API Kutipan Bahasa Indonesia
 
-## Getting Started
+API sederhana yang menyediakan kutipan inspiratif dalam Bahasa Indonesia. Dibangun dengan Next.js dan Tailwind CSS.
 
-First, run the development server:
+[![CI](https://github.com/liu-purnomo/quotes/actions/workflows/ci.yml/badge.svg)](https://github.com/liu-purnomo/quotes/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Fitur
+
+- Mendapatkan daftar kutipan inspiratif dalam Bahasa Indonesia
+- Filter kutipan berdasarkan kategori
+- Mendapatkan kutipan acak
+- Mendapatkan kutipan berdasarkan ID
+- Mendapatkan daftar kategori yang tersedia
+- Antarmuka web untuk menjelajahi kutipan
+- Dokumentasi API yang lengkap
+
+## Endpoint API
+
+- `GET /api/quotes` - Mendapatkan semua kutipan
+- `GET /api/quotes?category={category}` - Mendapatkan kutipan berdasarkan kategori
+- `GET /api/quotes/random` - Mendapatkan kutipan acak
+- `GET /api/quotes/random?category={category}` - Mendapatkan kutipan acak dari kategori tertentu
+- `GET /api/quotes/{id}` - Mendapatkan kutipan berdasarkan ID
+- `GET /api/categories` - Mendapatkan daftar kategori yang tersedia
+
+## Cara Penggunaan
+
+### Instalasi
 
 ```bash
+# Clone repositori
+git clone https://github.com/liu-purnomo/quotes.git
+cd quotes
+
+# Instal dependensi
+npm install
+
+# Jalankan server pengembangan
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat hasilnya.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Aplikasi ini dapat di-deploy ke platform seperti Vercel, Netlify, atau layanan hosting lainnya yang mendukung Next.js.
 
-## Learn More
+```bash
+# Build untuk produksi
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# Jalankan build produksi
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contoh Penggunaan API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Menggunakan Fetch API
 
-## Deploy on Vercel
+```javascript
+// Mendapatkan kutipan acak
+fetch('https://quotes.liupurnomo.com/api/quotes/random')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+// Mendapatkan kutipan dari kategori tertentu
+fetch('https://quotes.liupurnomo.com/api/quotes?category=motivasi')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Struktur Respons
+
+### Kutipan
+
+```json
+{
+  "id": 1,
+  "text": "Pendidikan adalah senjata paling mematikan di dunia, karena dengan pendidikan, Anda dapat mengubah dunia.",
+  "author": "Nelson Mandela",
+  "category": "pendidikan"
+}
+```
+
+### Daftar Kategori
+
+```json
+["pendidikan", "motivasi", "inspirasi"]
+```
+
+## Teknologi yang Digunakan
+
+- [Next.js](https://nextjs.org/) - Framework React untuk aplikasi web
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS untuk desain
+- [TypeScript](https://www.typescriptlang.org/) - Superset JavaScript dengan tipe statis
+
+## Kontribusi
+
+Kami sangat menghargai kontribusi dari komunitas! Jika Anda ingin berkontribusi pada proyek ini, silakan baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk detail tentang proses pengiriman pull request kepada kami.
+
+### Konvensi Kode
+
+Proyek ini menggunakan beberapa konvensi kode untuk menjaga konsistensi:
+
+- **TypeScript**: Semua kode ditulis dalam TypeScript dengan tipe yang tepat
+- **ESLint & Prettier**: Kode diformat menggunakan Prettier dan diperiksa dengan ESLint
+- **Komentar**: Semua kode memiliki komentar dalam bahasa Inggris untuk memudahkan kontribusi internasional
+- **Komponen**: Menggunakan functional components dengan hooks
+- **Tailwind CSS**: Styling menggunakan kelas Tailwind
+- **API**: Mengikuti prinsip RESTful dengan penanganan error yang tepat
+
+### Alur Kerja Pengembangan
+
+1. Fork repositori
+2. Buat branch fitur (`git checkout -b feature/amazing-feature`)
+3. Commit perubahan Anda (`git commit -m 'Add some amazing feature'`)
+4. Push ke branch (`git push origin feature/amazing-feature`)
+5. Buka Pull Request
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
+
+## Kontak
+
+Liu Purnomo - [hi@liupurnomo.com](mailto:hi@liupurnomo.com)
+
+Website: [liupurnomo.com](https://liupurnomo.com)
+
+URL Proyek: [https://github.com/liu-purnomo/quotes](https://github.com/liu-purnomo/quotes)
+
+API URL: [https://quotes.liupurnomo.com](https://quotes.liupurnomo.com)
