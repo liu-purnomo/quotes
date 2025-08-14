@@ -1,69 +1,62 @@
-/**
- * API Endpoint for Quote by ID
- * 
- * This file implements the API endpoint for retrieving a specific quote by its ID
- * Includes validation, error handling, and CORS headers for cross-origin access
- */
-
-import { quotes } from '@/data/quotes';
 import { NextResponse } from 'next/server';
+import { quotes } from '@/data/quotes';
+import { quotesRateLimit, getClientIP } from '@/lib/rateLimit';
 
-/**
- * GET handler for /api/quotes/[id] endpoint
- * Retrieves a specific quote by its ID
- * 
- * @param {Request} request - The incoming request object
- * @param {Object} params - Route parameters containing the quote ID
- * @returns {NextResponse} JSON response with the quote data and CORS headers
- */
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  // Parse the ID parameter to an integer
-  const id = parseInt(params.id);
-  
-  // Validate that the ID is a valid number
-  if (isNaN(id)) {
-    return NextResponse.json(
-      { error: 'ID must be a number' },
-      { status: 400 } // Bad Request status code
-    );
-  }
-  
-  // Find the quote with the matching ID
-  const quote = quotes.find(q => q.id === id);
-  
-  // Return 404 error if no quote is found with the given ID
-  if (!quote) {
-    return NextResponse.json(
-      { error: 'Quote not found' },
-      { status: 404 } // Not Found status code
-    );
-  }
-  
-  // Return the quote as JSON with appropriate CORS headers
-  return NextResponse.json(quote, {
-    headers: {
-      'Access-Control-Allow-Origin': '*', // Allow requests from any origin
-      'Access-Control-Allow-Methods': 'GET, OPTIONS', // Allow GET and OPTIONS methods
-      'Access-Control-Allow-Headers': 'Content-Type', // Allow Content-Type header
-    },
-  });
-}
+  try {
+    // Rate limiting
+    const clientIP = getClientIP(request);
+    const rateLimitResult = quotesRateLimit.isAllowed(clientIP);
+    
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json({
+        status: 'ERROR',
+        message: 'Terlalu banyak permintaan. Coba lagi dalam beberapa saat.',
+      }, { 
+        status: 429,
+        headers: {
+          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+          'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
+        }
+      });
+    }
 
-/**
- * OPTIONS handler for /api/quotes/[id] endpoint
- * Supports CORS preflight requests
- * 
- * @returns {NextResponse} Empty JSON response with CORS headers
- */
-export async function OPTIONS() {
-  return NextResponse.json({}, {
-    headers: {
-      'Access-Control-Allow-Origin': '*', // Allow requests from any origin
-      'Access-Control-Allow-Methods': 'GET, OPTIONS', // Allow GET and OPTIONS methods
-      'Access-Control-Allow-Headers': 'Content-Type', // Allow Content-Type header
-    },
-  });
+    const { id: idParam } = await params;
+    const id = parseInt(idParam);
+    
+    if (isNaN(id)) {
+      return NextResponse.json({
+        status: 'ERROR',
+        message: 'ID harus berupa angka',
+      }, { status: 400 });
+    }
+
+    const quote = quotes.find(q => q.id === id);
+    
+    if (!quote) {
+      return NextResponse.json({
+        status: 'ERROR',
+        message: 'Quote tidak ditemukan',
+      }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      status: 'SUCCESS',
+      message: 'Quote berhasil diambil',
+      data: quote,
+    }, {
+      headers: {
+        'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+        'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
+      }
+    });
+  } catch {
+    return NextResponse.json({
+      status: 'ERROR',
+      message: 'Gagal mengambil quote',
+    }, { status: 500 });
+  }
 }

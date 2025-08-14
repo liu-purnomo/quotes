@@ -1,37 +1,56 @@
 ---
-name: Bug report
+name: Bug Report 🐛
 about: Create a report to help us improve
-title: '[BUG]'
+title: '[BUG] '
 labels: bug
-assignees: ''
-
+assignees: liu-purnomo
 ---
 
-**Describe the bug**
+## 🐛 Bug Description
 A clear and concise description of what the bug is.
 
-**To Reproduce**
+## 📋 To Reproduce
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
+## ✅ Expected Behavior
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
+## 📱 Screenshots
 If applicable, add screenshots to help explain your problem.
 
-**Environment (please complete the following information):**
- - OS: [e.g. Windows, macOS, Linux]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
- - Node.js version
- - npm/yarn version
+## 🖥️ Environment
+**Desktop:**
+- OS: [e.g. Windows 11, macOS Monterey]
+- Browser: [e.g. Chrome, Firefox, Safari]
+- Version: [e.g. 96.0]
 
-**API Endpoint (if applicable):**
-Which API endpoint is affected?
+**Mobile:**
+- Device: [e.g. iPhone 13, Samsung Galaxy S21]
+- OS: [e.g. iOS 15.2, Android 12]
+- Browser: [e.g. Safari, Chrome Mobile]
+- Version: [e.g. 96.0]
 
-**Additional context**
+## 🔗 API Request (if applicable)
+If this is an API-related bug, please include:
+- Endpoint: [e.g. GET /api/quotes/random]
+- Parameters: [e.g. ?category=motivasi]
+- Request headers: [if relevant]
+
+## 📝 Additional Context
 Add any other context about the problem here.
+
+## 📊 Error Logs
+If applicable, paste any error messages or console logs:
+```
+[Paste error logs here]
+```
+
+## ✔️ Checklist
+- [ ] I have searched existing issues to avoid duplicates
+- [ ] I have provided all the required information
+- [ ] I can reproduce this issue consistently
+- [ ] This bug affects the functionality of the application

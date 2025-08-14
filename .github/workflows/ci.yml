@@ -1,33 +1,196 @@
-name: CI
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
   pull_request:
     branches: [ main ]
 
 jobs:
-  build:
+  lint-and-type-check:
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-
+    
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    
     - name: Install dependencies
       run: npm ci
-    - name: Lint
-      run: npm run lint || echo "No linting configured"
-    - name: Type check
-      run: npm run typecheck || echo "No type checking configured"
-    - name: Build
+    
+    - name: Run ESLint
+      run: npm run lint
+    
+    - name: Run TypeScript type check
+      run: npm run type-check || npm run build
+    
+  build-test:
+    runs-on: ubuntu-latest
+    needs: lint-and-type-check
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build application
       run: npm run build
-    - name: Test
-      run: npm test || echo "No tests configured"
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-files
+        path: .next/
+        retention-days: 1
+
+  api-tests:
+    runs-on: ubuntu-latest
+    needs: build-test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-files
+        path: .next/
+    
+    - name: Start application
+      run: |
+        npm run build
+        npm start &
+        sleep 10
+    
+    - name: Test API endpoints
+      run: |
+        # Test quotes endpoint
+        curl -f http://localhost:3000/api/quotes || exit 1
+        
+        # Test random quote endpoint
+        curl -f http://localhost:3000/api/quotes/random || exit 1
+        
+        # Test specific quote endpoint
+        curl -f http://localhost:3000/api/quotes/1 || exit 1
+        
+        # Test with query parameters
+        curl -f "http://localhost:3000/api/quotes?limit=5&page=1" || exit 1
+        
+        echo "✅ All API endpoints are working!"
+
+  lighthouse-audit:
+    runs-on: ubuntu-latest
+    needs: build-test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build and start application
+      run: |
+        npm run build
+        npm start &
+        sleep 10
+    
+    - name: Run Lighthouse audit
+      uses: treosh/lighthouse-ci-action@v11
+      with:
+        urls: |
+          http://localhost:3000
+          http://localhost:3000/docs
+        configPath: './.lighthouserc.json'
+        uploadArtifacts: true
+        temporaryPublicStorage: true
+
+  security-audit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run security audit
+      run: npm audit --audit-level high
+    
+    - name: Check for outdated packages
+      run: npm outdated || true
+
+  deploy-preview:
+    runs-on: ubuntu-latest
+    needs: [lint-and-type-check, build-test, api-tests]
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Comment PR with deploy preview
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '🚀 Deploy preview will be available after merge to main branch.\n\n✅ All checks passed!'
+          });
+
+  notify-status:
+    runs-on: ubuntu-latest
+    needs: [lint-and-type-check, build-test, api-tests, security-audit]
+    if: always()
+    
+    steps:
+    - name: Notify build status
+      run: |
+        if [ "${{ needs.lint-and-type-check.result }}" = "success" ] && \
+           [ "${{ needs.build-test.result }}" = "success" ] && \
+           [ "${{ needs.api-tests.result }}" = "success" ] && \
+           [ "${{ needs.security-audit.result }}" = "success" ]; then
+          echo "✅ All checks passed! Ready for deployment."
+        else
+          echo "❌ Some checks failed. Please review the logs."
+          exit 1
+        fi

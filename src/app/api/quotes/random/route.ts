@@ -1,65 +1,69 @@
-/**
- * API Endpoint for Random Quotes
- * 
- * This file implements the API endpoint for retrieving a random quote
- * Supports filtering by category and includes CORS headers for cross-origin access
- */
-
-import { quotes } from '@/data/quotes';
 import { NextResponse } from 'next/server';
+import { quotes } from '@/data/quotes';
+import { randomQuotesRateLimit, getClientIP } from '@/lib/rateLimit';
 
-/**
- * GET handler for /api/quotes/random endpoint
- * Retrieves a random quote, optionally filtered by category
- * 
- * @param {Request} request - The incoming request object
- * @returns {NextResponse} JSON response with a random quote and CORS headers
- */
 export async function GET(request: Request) {
-  // Extract query parameters from the request URL
-  const { searchParams } = new URL(request.url);
-  const category = searchParams.get('category');
-  
-  // Filter quotes by category if the category parameter is provided
-  let filteredQuotes = quotes;
-  if (category) {
-    filteredQuotes = quotes.filter(quote => quote.category === category);
-  }
-  
-  // Return 404 error if no quotes match the category filter
-  if (filteredQuotes.length === 0) {
-    return NextResponse.json(
-      { error: 'No quotes found for this category' },
-      { status: 404 }
-    );
-  }
-  
-  // Select a random quote from the filtered array
-  const randomIndex = Math.floor(Math.random() * filteredQuotes.length);
-  const randomQuote = filteredQuotes[randomIndex];
-  
-  // Return the random quote as JSON with appropriate CORS headers
-  return NextResponse.json(randomQuote, {
-    headers: {
-      'Access-Control-Allow-Origin': '*', // Allow requests from any origin
-      'Access-Control-Allow-Methods': 'GET, OPTIONS', // Allow GET and OPTIONS methods
-      'Access-Control-Allow-Headers': 'Content-Type', // Allow Content-Type header
-    },
-  });
-}
+  try {
+    // Rate limiting
+    const clientIP = getClientIP(request);
+    const rateLimitResult = randomQuotesRateLimit.isAllowed(clientIP);
+    
+    if (!rateLimitResult.allowed) {
+      return NextResponse.json({
+        status: 'ERROR',
+        message: 'Terlalu banyak permintaan. Coba lagi dalam beberapa saat.',
+      }, { 
+        status: 429,
+        headers: {
+          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+          'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
+        }
+      });
+    }
 
-/**
- * OPTIONS handler for /api/quotes/random endpoint
- * Supports CORS preflight requests
- * 
- * @returns {NextResponse} Empty JSON response with CORS headers
- */
-export async function OPTIONS() {
-  return NextResponse.json({}, {
-    headers: {
-      'Access-Control-Allow-Origin': '*', // Allow requests from any origin
-      'Access-Control-Allow-Methods': 'GET, OPTIONS', // Allow GET and OPTIONS methods
-      'Access-Control-Allow-Headers': 'Content-Type', // Allow Content-Type header
-    },
-  });
+    const { searchParams } = new URL(request.url);
+    
+    // Optional category filter for random quote
+    const category = searchParams.get('category');
+    
+    let availableQuotes = [...quotes];
+    
+    // Filter by category if provided
+    if (category) {
+      availableQuotes = quotes.filter(quote => 
+        quote.category.toLowerCase().includes(category.toLowerCase())
+      );
+      
+      if (availableQuotes.length === 0) {
+        return NextResponse.json({
+          status: 'ERROR',
+          message: 'Tidak ada quote dengan kategori tersebut',
+        }, { status: 404 });
+      }
+    }
+    
+    // Get random quote
+    const randomIndex = Math.floor(Math.random() * availableQuotes.length);
+    const randomQuote = availableQuotes[randomIndex];
+    
+    return NextResponse.json({
+      status: 'SUCCESS',
+      message: 'Random quote berhasil diambil',
+      data: randomQuote,
+      metadata: {
+        totalAvailable: availableQuotes.length,
+        category: category || null,
+      },
+    }, {
+      headers: {
+        'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+        'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
+      }
+    });
+  } catch {
+    return NextResponse.json({
+      status: 'ERROR',
+      message: 'Gagal mengambil random quote',
+    }, { status: 500 });
+  }
 }

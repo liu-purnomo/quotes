@@ -1,34 +1,60 @@
 ---
-name: Feature request
+name: Feature Request ✨
 about: Suggest an idea for this project
-title: '[FEATURE]'
+title: '[FEATURE] '
 labels: enhancement
-assignees: ''
-
+assignees: liu-purnomo
 ---
 
+## 🚀 Feature Description
+A clear and concise description of what you want to happen.
+
+## 💡 Motivation
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
+## 📋 Detailed Solution
 **Describe the solution you'd like**
 A clear and concise description of what you want to happen.
 
+## 🔄 Alternative Solutions
 **Describe alternatives you've considered**
 A clear and concise description of any alternative solutions or features you've considered.
 
-**For API features:**
-- What endpoint would you like to see?
-- What data should it return?
-- How would this benefit users of the API?
+## 🎯 Use Case
+**Who would benefit from this feature?**
+- [ ] End users of the web application
+- [ ] API consumers/developers
+- [ ] Contributors to the project
+- [ ] Project maintainers
 
-**For UI features:**
-- What component or page would this affect?
-- How would this improve user experience?
+## 📊 Priority Level
+How important is this feature to you?
+- [ ] Critical - I cannot use the application without this
+- [ ] High - This would significantly improve my experience
+- [ ] Medium - This would be a nice addition
+- [ ] Low - This is just a nice-to-have
 
-**For quote additions:**
-- What quotes would you like to add?
-- What categories would they belong to?
-- Are there any new categories you'd like to suggest?
+## 🖼️ Mockups/Examples
+If applicable, add mockups, screenshots, or examples to help explain your feature request.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## 📚 API Changes (if applicable)
+If this feature would require API changes, please describe:
+- New endpoints needed
+- Changes to existing endpoints
+- New parameters or response formats
+
+## 🧪 Acceptance Criteria
+What should be true when this feature is complete?
+- [ ] Criteria 1
+- [ ] Criteria 2
+- [ ] Criteria 3
+
+## 📝 Additional Context
+Add any other context, links, or examples about the feature request here.
+
+## ✔️ Checklist
+- [ ] I have searched existing issues to avoid duplicates
+- [ ] I have provided a clear description of the feature
+- [ ] I understand this is a request and not a guarantee
+- [ ] I am willing to help test this feature when implemented

@@ -1,135 +1,209 @@
-# API Kutipan Bahasa Indonesia
+# Quotes API 🌟
 
-API sederhana yang menyediakan kutipan inspiratif dalam Bahasa Indonesia. Dibangun dengan Next.js dan Tailwind CSS.
-
-[![CI](https://github.com/liu-purnomo/quotes/actions/workflows/ci.yml/badge.svg)](https://github.com/liu-purnomo/quotes/actions/workflows/ci.yml)
+[![Next.js](https://img.shields.io/badge/Next.js-15.4.6-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0-38bdf8)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-11.0-ff69b4)](https://www.framer.com/motion/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Fitur
+> API dan aplikasi web untuk koleksi quotes inspiratif bahasa Indonesia dengan interface yang modern dan interaktif.
 
-- Mendapatkan daftar kutipan inspiratif dalam Bahasa Indonesia
-- Filter kutipan berdasarkan kategori
-- Mendapatkan kutipan acak
-- Mendapatkan kutipan berdasarkan ID
-- Mendapatkan daftar kategori yang tersedia
-- Antarmuka web untuk menjelajahi kutipan
-- Dokumentasi API yang lengkap
+![Screenshot](public/screenshot1.png)
 
-## Endpoint API
+## ✨ Demo
 
-- `GET /api/quotes` - Mendapatkan semua kutipan
-- `GET /api/quotes?category={category}` - Mendapatkan kutipan berdasarkan kategori
-- `GET /api/quotes/random` - Mendapatkan kutipan acak
-- `GET /api/quotes/random?category={category}` - Mendapatkan kutipan acak dari kategori tertentu
-- `GET /api/quotes/{id}` - Mendapatkan kutipan berdasarkan ID
-- `GET /api/categories` - Mendapatkan daftar kategori yang tersedia
+🌐 **Live Demo**: [https://quotes.liupurnomo.com](https://quotes.liupurnomo.com)
+📚 **API Documentation**: [https://quotes.liupurnomo.com/docs](https://quotes.liupurnomo.com/docs)
 
-## Cara Penggunaan
+## 🚀 Features
 
-### Instalasi
+### 🎬 Interactive Web App
+- **Slideshow Mode** - Auto-play quotes dengan interval customizable
+- **Fullscreen Experience** - Mode fullscreen untuk pengalaman immersive
+- **Theme Switcher** - 5 theme gradient yang berbeda
+- **Responsive Design** - Optimized untuk desktop dan mobile
+- **Smooth Animations** - Powered by Framer Motion
+
+### 🔌 Powerful API
+- **RESTful API** dengan 3 endpoints utama
+- **Pagination & Filtering** - Support untuk large datasets
+- **Rate Limiting** - Protection dari abuse
+- **Search Functionality** - Global search across quotes
+- **Sorting Options** - Flexible sorting by multiple fields
+
+### 📱 Mobile-First Design
+- **Bottom Dock Controls** - Touch-friendly pada mobile
+- **Glassmorphism UI** - Modern transparent effects
+- **Responsive Typography** - Scalable text untuk semua device
+
+## 🏗️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 📊 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/quotes` | Get all quotes with pagination & filtering |
+| `GET` | `/api/quotes/random` | Get random quote (optional category filter) |
+| `GET` | `/api/quotes/:id` | Get specific quote by ID |
+
+### 🔍 Query Parameters
+
+**GET `/api/quotes`:**
+- `page` - Page number (default: 1)
+- `limit` - Items per page (default: 5, max: 100)
+- `category` - Filter by category
+- `author` - Filter by author
+- `search` - Global search
+- `sortBy` - Sort field (id, text, author, category)
+- `sortOrder` - Sort order (asc, desc)
+
+**GET `/api/quotes/random`:**
+- `category` - Optional category filter
+
+### 📚 Available Categories
+
+- `motivasi` - Motivational quotes
+- `kesuksesan` - Success quotes  
+- `kehidupan` - Life wisdom
+- `pendidikan` - Educational quotes
+- `kebahagiaan` - Happiness quotes
+- `cinta` - Love quotes
+- `teknologi` - Technology quotes
+- `bisnis` - Business quotes
+- `persahabatan` - Friendship quotes
+- `kerja-keras` - Hard work quotes
+- `kepemimpinan` - Leadership quotes
+- `kreativitas` - Creativity quotes
+- `pembelajaran` - Learning quotes
+- `perubahan` - Change quotes
+- `nasionalisme` - Nationalism quotes
+
+## 🛠️ Installation & Development
+
+### Prerequisites
+- Node.js 18+ 
+- npm atau yarn
+
+### Setup Local Development
+
+1. **Clone repository**
+   ```bash
+   git clone https://github.com/liu-purnomo/quotes.git
+   cd quotes
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open browser**
+   ```
+   http://localhost:3000
+   ```
+
+### 🏗️ Build for Production
 
 ```bash
-# Clone repositori
-git clone https://github.com/liu-purnomo/quotes.git
-cd quotes
-
-# Instal dependensi
-npm install
-
-# Jalankan server pengembangan
-npm run dev
-```
-
-Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat hasilnya.
-
-### Deployment
-
-Aplikasi ini dapat di-deploy ke platform seperti Vercel, Netlify, atau layanan hosting lainnya yang mendukung Next.js.
-
-```bash
-# Build untuk produksi
 npm run build
-
-# Jalankan build produksi
 npm start
 ```
 
-## Contoh Penggunaan API
+### 🧪 Linting & Type Check
 
-### Menggunakan Fetch API
-
-```javascript
-// Mendapatkan kutipan acak
-fetch('https://quotes.liupurnomo.com/api/quotes/random')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
-
-// Mendapatkan kutipan dari kategori tertentu
-fetch('https://quotes.liupurnomo.com/api/quotes?category=motivasi')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
+```bash
+npm run lint
+npm run type-check
 ```
 
-## Struktur Respons
+## 📊 Rate Limiting
 
-### Kutipan
+| Endpoint | Limit | Window |
+|----------|-------|---------|
+| `/api/quotes` | 30 requests | per minute |
+| `/api/quotes/:id` | 30 requests | per minute |
+| `/api/quotes/random` | 60 requests | per minute |
+
+## 📝 Response Format
+
+All API responses follow this consistent structure:
 
 ```json
 {
-  "id": 1,
-  "text": "Pendidikan adalah senjata paling mematikan di dunia, karena dengan pendidikan, Anda dapat mengubah dunia.",
-  "author": "Nelson Mandela",
-  "category": "pendidikan"
+  "status": "SUCCESS" | "ERROR",
+  "message": "Descriptive message",
+  "data": {...} | [...],
+  "metadata": {...} // Optional
 }
 ```
 
-### Daftar Kategori
+## 🎨 Usage Examples
 
-```json
-["pendidikan", "motivasi", "inspirasi"]
+### Fetch Random Quote
+```javascript
+const response = await fetch('https://quotes.liupurnomo.com/api/quotes/random');
+const data = await response.json();
+console.log(data.data.text); // Quote text
 ```
 
-## Teknologi yang Digunakan
+### Search Quotes
+```javascript
+const response = await fetch('https://quotes.liupurnomo.com/api/quotes?search=hidup&limit=10');
+const data = await response.json();
+console.log(data.data); // Array of matching quotes
+```
 
-- [Next.js](https://nextjs.org/) - Framework React untuk aplikasi web
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS untuk desain
-- [TypeScript](https://www.typescriptlang.org/) - Superset JavaScript dengan tipe statis
+### Get Quotes by Category
+```javascript
+const response = await fetch('https://quotes.liupurnomo.com/api/quotes/random?category=motivasi');
+const data = await response.json();
+console.log(data.data); // Random motivational quote
+```
 
-## Kontribusi
+## 🤝 Contributing
 
-Kami sangat menghargai kontribusi dari komunitas! Jika Anda ingin berkontribusi pada proyek ini, silakan baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk detail tentang proses pengiriman pull request kepada kami.
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-### Konvensi Kode
+### Quick Start for Contributors
 
-Proyek ini menggunakan beberapa konvensi kode untuk menjaga konsistensi:
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run tests and linting
+5. Commit using conventional commits
+6. Push to your fork
+7. Create Pull Request
 
-- **TypeScript**: Semua kode ditulis dalam TypeScript dengan tipe yang tepat
-- **ESLint & Prettier**: Kode diformat menggunakan Prettier dan diperiksa dengan ESLint
-- **Komentar**: Semua kode memiliki komentar dalam bahasa Inggris untuk memudahkan kontribusi internasional
-- **Komponen**: Menggunakan functional components dengan hooks
-- **Tailwind CSS**: Styling menggunakan kelas Tailwind
-- **API**: Mengikuti prinsip RESTful dengan penanganan error yang tepat
+## 📄 License
 
-### Alur Kerja Pengembangan
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-1. Fork repositori
-2. Buat branch fitur (`git checkout -b feature/amazing-feature`)
-3. Commit perubahan Anda (`git commit -m 'Add some amazing feature'`)
-4. Push ke branch (`git push origin feature/amazing-feature`)
-5. Buka Pull Request
+## 🙏 Acknowledgments
 
-## Lisensi
+- Quotes collected from various sources with proper attribution
+- Inspired by modern quote applications and APIs
+- Built with ❤️ using modern web technologies
 
-Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
+## 📞 Contact & Support
 
-## Kontak
+- **Repository**: [https://github.com/liu-purnomo/quotes](https://github.com/liu-purnomo/quotes)
+- **Issues**: [GitHub Issues](https://github.com/liu-purnomo/quotes/issues)
+- **Documentation**: [https://quotes.liupurnomo.com/docs](https://quotes.liupurnomo.com/docs)
 
-Liu Purnomo - [hi@liupurnomo.com](mailto:hi@liupurnomo.com)
+---
 
-Website: [liupurnomo.com](https://liupurnomo.com)
-
-URL Proyek: [https://github.com/liu-purnomo/quotes](https://github.com/liu-purnomo/quotes)
-
-API URL: [https://quotes.liupurnomo.com](https://quotes.liupurnomo.com)
+<div align="center">
+Made with ❤️ by <a href="https://github.com/liu-purnomo">Liu Purnomo</a>
+</div>
