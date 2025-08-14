@@ -8,7 +8,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Initial project setup
+- **Dynamic Quote System Implementation**
+  - Auto-generate ID system for quotes without manual ID conflicts
+  - Modular file structure with separate author files for better organization
+  - Support for quote sources attribution in author field format
+
+### Changed
+- **Quote Data Structure Improvements**
+  - Refactored quotes into individual author files for better maintainability
+  - Implemented automatic ID generation to prevent conflicts
+  - Enhanced author attribution format to include book sources
+
+### Enhanced
+- **Steve Jobs Quotes Collection**
+  - Added 110+ authentic Steve Jobs quotes with Indonesian translations
+  - Organized quotes by themes: innovation, leadership, design, motivation, etc.
+  - Natural Indonesian translations maintaining original meaning and context
+- **Tere Liye Quotes Collection**
+  - Added 100+ authentic Tere Liye quotes from popular Indonesian novels
+  - Categorized by themes: kehidupan, cinta, motivasi, harapan, perjuangan, etc.
+  - Proper attribution with book titles from Bumi series, Pulang, Hujan, etc.
 
 ## [1.0.0] - 2024-12-14
 

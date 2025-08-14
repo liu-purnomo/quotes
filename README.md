@@ -10,6 +10,7 @@
 
 ![Screenshot](public/screenshot1.png)
 
+
 ## ✨ Demo
 
 🌐 **Live Demo**: [https://quotes.liupurnomo.com](https://quotes.liupurnomo.com)
@@ -44,6 +45,10 @@
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Deployment**: [Vercel](https://vercel.com/)
+
+
+![Screenshot](public/screenshot2.png)
+
 
 ## 📊 API Endpoints
 
