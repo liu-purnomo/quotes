@@ -177,7 +177,7 @@ export const steveJobs = [
     category: 'motivasi',
   },
   {
-    text: 'Tetap lapar, tetap bodoh.',
+    text: 'Teruslah lapar, teruslah bodoh.',
     author: 'Steve Jobs',
     category: 'motivasi',
   },

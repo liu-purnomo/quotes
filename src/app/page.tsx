@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {
   BookOpen,
   Maximize,
+  MessageSquareQuote,
   Minimize,
   Palette,
   Pause,
@@ -38,7 +39,7 @@ const themes = [
   },
   {
     name: 'Purple Haze',
-    gradient: 'bg-gradient-to-b from-violet-900 via-purple-900 to-violet-900',
+    gradient: 'bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900',
   },
 ];
 
@@ -153,6 +154,16 @@ export default function Home() {
         >
           <Palette size={16} />
         </motion.button>
+        <Link href="/quotes">
+          <motion.button
+            className="p-3 bg-white/5 backdrop-blur text-white rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+            title="List Quotes"
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MessageSquareQuote size={16} />
+          </motion.button>
+        </Link>
         <Link href="/docs">
           <motion.button
             className="p-3 bg-white/5 backdrop-blur text-white rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
@@ -202,6 +213,16 @@ export default function Home() {
           <Palette size={18} />
         </motion.button>
 
+        <Link href="/quotes">
+          <motion.button
+            className="p-2 bg-white/10 text-white rounded-full border border-white/20 hover:bg-white/20 transition-all"
+            title="API Documentation"
+            whileHover={{ scale: 1.1, rotate: 360 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MessageSquareQuote size={18} />
+          </motion.button>
+        </Link>
         <Link href="/docs">
           <motion.button
             className="p-2 bg-white/10 text-white rounded-full border border-white/20 hover:bg-white/20 transition-all"

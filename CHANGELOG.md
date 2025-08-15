@@ -7,27 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-01-15
+
 ### Added
-- **Dynamic Quote System Implementation**
-  - Auto-generate ID system for quotes without manual ID conflicts
-  - Modular file structure with separate author files for better organization
-  - Support for quote sources attribution in author field format
+- **Quote Navigation System**
+  - Previous/Next quote navigation in detail pages
+  - API endpoint for quote navigation with adjacent quote info
+  - Mobile-responsive navigation with author preview
+- **Enhanced Quotes Collection**
+  - Added philosophers: Al-Farabi, Al-Ghazali, Al-Kindi, Aristoteles, Ibnu Khaldun, Ibnu Sina, Immanuel Kant, Socrates, Plato, Phytagoras, Thales
+  - Added historical figures: Sun Tzu, Tan Malaka, Jalaludin Rumi
+  - Added modern figures: Jack Ma, Ustadz Adi Hidayat
+  - Total 16 new author collections with 100+ additional quotes
 
 ### Changed
-- **Quote Data Structure Improvements**
-  - Refactored quotes into individual author files for better maintainability
-  - Implemented automatic ID generation to prevent conflicts
-  - Enhanced author attribution format to include book sources
+- **UI/UX Improvements**
+  - Converted card grid layout to compact list view for better mobile experience
+  - Improved dropdown z-index handling for better accessibility
+  - Removed complex animations from quotes list for better performance
+  - Enhanced mobile pagination with separate mobile/desktop layouts
 
-### Enhanced
-- **Steve Jobs Quotes Collection**
-  - Added 110+ authentic Steve Jobs quotes with Indonesian translations
-  - Organized quotes by themes: innovation, leadership, design, motivation, etc.
-  - Natural Indonesian translations maintaining original meaning and context
-- **Tere Liye Quotes Collection**
-  - Added 100+ authentic Tere Liye quotes from popular Indonesian novels
-  - Categorized by themes: kehidupan, cinta, motivasi, harapan, perjuangan, etc.
-  - Proper attribution with book titles from Bumi series, Pulang, Hujan, etc.
+### Fixed
+- **Dropdown Menu Issues**
+  - Fixed z-index conflicts preventing dropdown menus from displaying
+  - Simplified stacking context hierarchy
+  - Removed backdrop-blur from container elements causing interference
+- **Mobile Responsiveness**
+  - Fixed pagination layout issues on mobile devices
+  - Improved touch targets and spacing
+  - Better responsive typography and button sizing
+
+### Technical
+- **Performance Optimizations**
+  - Removed Framer Motion from quotes list to reduce complexity
+  - Simplified CSS architecture with cleaner z-index management
+  - Better Tailwind CSS practices for z-index handling
 
 ## [1.0.0] - 2024-12-14
 
