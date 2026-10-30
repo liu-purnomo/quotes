@@ -12,6 +12,7 @@ interface Quote {
   text: string;
   author: string;
   category: string;
+  source?: string;
 }
 
 interface NavigationQuote {
@@ -338,7 +339,17 @@ export default function QuoteDetailPage() {
           transition={{ delay: 1.0, duration: 0.6 }}
           className="text-center mt-6"
         >
-          <p className="text-white/50 text-sm">Kutipan #{quote.id}</p>
+          <p className="text-white/50 text-sm">
+            Kutipan #{quote.id}
+            {quote.source && (
+              <>
+                {' · '}
+                <a href={quote.source} target="_blank" rel="noreferrer" className="underline hover:text-white/80">
+                  Sumber
+                </a>
+              </>
+            )}
+          </p>
         </motion.div>
       </div>
 

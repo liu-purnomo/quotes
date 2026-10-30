@@ -89,6 +89,9 @@
 - `pembelajaran` - Learning quotes
 - `perubahan` - Change quotes
 - `nasionalisme` - Nationalism quotes
+- `perempuan` - Women quotes
+- `lingkungan` - Environment quotes
+- `seni` - Arts and culture quotes
 
 ## 🛠️ Installation & Development
 
@@ -210,6 +213,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Quotes collected from various sources with proper attribution
+- Quotes in `src/data/quotes/terverifikasi.ts` are compiled from [Wikikutip Bahasa Indonesia](https://id.wikiquote.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), each with its original source link
 - Inspired by modern quote applications and APIs
 - Built with ❤️ using modern web technologies
 

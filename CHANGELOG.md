@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Quote image editor on the quote detail page: feed, portrait and story sizes, photo upload stored only in browser IndexedDB, Unsplash and Pixabay search, draggable text, brightness and color overlays, and text effects
+- 259 source-checked quotes from 145 public figures, with a source link on the quote detail page
 
 ## [0.2.0] - 2025-01-15
 
