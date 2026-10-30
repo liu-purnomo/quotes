@@ -244,8 +244,12 @@ export default function QuotesPage() {
   };
 
   useEffect(() => {
-    fetchAuthors();
-    fetchCategories();
+    const timeoutId = setTimeout(() => {
+      fetchAuthors();
+      fetchCategories();
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   useEffect(() => {

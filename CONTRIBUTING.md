@@ -30,7 +30,7 @@ This project and everyone participating in it is governed by our Code of Conduct
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 20.9+
 - npm or yarn
 - Git
 - Code editor (VS Code recommended)

@@ -1,6 +1,6 @@
 # Quotes API 🌟
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.4.6-black)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.4.3-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0-38bdf8)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-11.0-ff69b4)](https://www.framer.com/motion/)
@@ -39,7 +39,7 @@
 
 ## 🏗️ Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Framework**: [Next.js 16](https://nextjs.org/) with App Router
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
@@ -93,7 +93,7 @@
 ## 🛠️ Installation & Development
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 20.9+
 - npm atau yarn
 
 ### Setup Local Development

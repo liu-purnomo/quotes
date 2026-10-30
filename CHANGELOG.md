@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Upgraded Next.js to 16.4.3 and React to 19.3.1
+- Replaced `next lint` with the ESLint CLI and moved to native flat config
+- Raised the minimum Node.js version to 20.9
+
 ## [0.2.0] - 2025-01-15
 
 ### Added

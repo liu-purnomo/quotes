@@ -98,7 +98,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetchQuote();
+    const timeoutId = setTimeout(fetchQuote, 0);
 
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -107,6 +107,7 @@ export default function Home() {
     document.addEventListener('fullscreenchange', handleFullscreenChange);
 
     return () => {
+      clearTimeout(timeoutId);
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
       if (slideshowInterval) {
         clearInterval(slideshowInterval);
