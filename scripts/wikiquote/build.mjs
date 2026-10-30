@@ -1,6 +1,6 @@
 // Turns reviewed translations into src/data/quotes/terjemahan.ts.
 // Usage: node scripts/wikiquote/build.mjs
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -19,6 +19,17 @@ const AUTHOR_NAMES = {
   Rumi: 'Jalaluddin Rumi',
   'Abu Hamid al-Ghazali': 'Al-Ghazali',
   'Tenzin Gyatso, 14th Dalai Lama': 'Dalai Lama',
+  Napoleon: 'Napoleon Bonaparte',
+  'Anthony Robbins': 'Tony Robbins',
+  'Alexander the Great': 'Aleksander Agung',
+  Epicurus: 'Epikuros',
+  Heraclitus: 'Herakleitos',
+  'Thomas Aquinas': 'Thomas Aquinas',
+  'Augustine of Hippo': 'Agustinus dari Hippo',
+  'Pope Francis': 'Paus Fransiskus',
+  'Pope John Paul II': 'Paus Yohanes Paulus II',
+  Mencius: 'Mensius',
+  Saadi: 'Saadi Shirazi',
 };
 
 const CATEGORY_RULES = [
@@ -68,7 +79,16 @@ const entries = translations.map(({ i, text }) => {
   };
 });
 
-entries.sort((a, b) => a.author.localeCompare(b.author, 'id'));
+// Quote IDs come from array position, so published entries must never move:
+// keep the current file order and only append what is new
+const published = existsSync(OUTPUT)
+  ? [...readFileSync(OUTPUT, 'utf8').matchAll(/^ {4}original: '((?:\\.|[^'\\])*)',$/gm)]
+      .map((match) => match[1].replace(/\\(.)/g, '$1'))
+  : [];
+const position = new Map(published.map((original, index) => [original, index]));
+const rank = (entry) => position.get(entry.original) ?? Number.MAX_SAFE_INTEGER;
+
+entries.sort((a, b) => rank(a) - rank(b));
 
 const body = entries
   .map((entry) => `  {\n${Object.entries(entry).map(([key, value]) => `    ${key}: ${escape(value)},`).join('\n')}\n  },`)

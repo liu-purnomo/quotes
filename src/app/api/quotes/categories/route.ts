@@ -20,7 +20,14 @@ export async function GET(request: Request) {
       });
     }
 
-    const categories = Array.from(new Set(quotes.map(quote => quote.category))).sort();
+    const { searchParams } = new URL(request.url);
+    const counts = new Map<string, number>();
+    for (const { category } of quotes) counts.set(category, (counts.get(category) ?? 0) + 1);
+
+    // ?sort=popular lists the biggest categories first
+    const categories = searchParams.get('sort') === 'popular'
+      ? Array.from(counts.keys()).sort((a, b) => counts.get(b)! - counts.get(a)!)
+      : Array.from(counts.keys()).sort();
 
     return NextResponse.json({
       status: 'SUCCESS',

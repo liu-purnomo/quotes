@@ -28,6 +28,7 @@ export async function GET(request: Request) {
     const limit = parseInt(searchParams.get('limit') || '5');
     const category = searchParams.get('category');
     const author = searchParams.get('author');
+    const authorExact = searchParams.get('authorExact') === 'true';
     const search = searchParams.get('search');
     const sortBy = searchParams.get('sortBy') || 'id';
     const sortOrder = searchParams.get('sortOrder') || 'asc';
@@ -74,7 +75,9 @@ export async function GET(request: Request) {
 
     if (author) {
       filteredQuotes = filteredQuotes.filter(quote => 
-        quote.author.toLowerCase().includes(author.toLowerCase())
+        authorExact
+          ? quote.author === author
+          : quote.author.toLowerCase().includes(author.toLowerCase())
       );
     }
 

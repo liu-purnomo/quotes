@@ -215,6 +215,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Quotes collected from various sources with proper attribution
 - Quotes in `src/data/quotes/terverifikasi.ts` are compiled from [Wikikutip Bahasa Indonesia](https://id.wikiquote.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), each with its original source link
 - Quotes in `src/data/quotes/terjemahan.ts` are sourced from [English Wikiquote](https://en.wikiquote.org) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The Indonesian text is our own translation by meaning, shown next to the original
+- Author portraits are hotlinked from [Wikimedia Commons](https://commons.wikimedia.org); the photographer and license are shown on each quote detail page
 - Inspired by modern quote applications and APIs
 - Built with ❤️ using modern web technologies
 

@@ -98,3 +98,240 @@ Alexander Pope
 Samuel Johnson
 John Stuart Mill
 Adam Smith
+Plutarch
+Ovid
+Horace
+Virgil
+Epicurus
+Heraclitus
+Pythagoras
+Baruch Spinoza
+René Descartes
+John Locke
+David Hume
+Jean-Jacques Rousseau
+Thomas Paine
+Alexis de Tocqueville
+Karl Marx
+Max Weber
+Simone de Beauvoir
+Hannah Arendt
+Jean-Paul Sartre
+Ludwig Wittgenstein
+Karl Popper
+Noam Chomsky
+Paulo Freire
+John Dewey
+Maria Montessori
+Florence Nightingale
+Rosa Parks
+Harriet Tubman
+Frederick Douglass
+Malcolm X
+Susan B. Anthony
+Sojourner Truth
+Simón Bolívar
+Jawaharlal Nehru
+B. R. Ambedkar
+Swami Vivekananda
+Lee Kuan Yew
+Mikhail Gorbachev
+Dag Hammarskjöld
+Jimmy Carter
+Ronald Reagan
+Dwight D. Eisenhower
+George Washington
+John Adams
+James Madison
+Napoleon Bonaparte
+Alexander the Great
+Julius Caesar
+Otto von Bismarck
+Margaret Thatcher
+Indira Gandhi
+Benazir Bhutto
+Golda Meir
+Jane Goodall
+Rachel Carson
+Wangari Maathai
+Greta Thunberg
+Richard Dawkins
+Neil deGrasse Tyson
+Niels Bohr
+Max Planck
+Werner Heisenberg
+Erwin Schrödinger
+Michael Faraday
+Louis Pasteur
+Ada Lovelace
+Alan Turing
+Grace Hopper
+Tim Berners-Lee
+Elon Musk
+Jeff Bezos
+Andrew Carnegie
+John D. Rockefeller
+Charlie Munger
+Benjamin Graham
+Ray Bradbury
+Isaac Asimov
+Arthur C. Clarke
+Kurt Vonnegut
+Gabriel García Márquez
+Jorge Luis Borges
+Pablo Neruda
+Franz Kafka
+Hermann Hesse
+Thomas Mann
+Robert Frost
+Emily Dickinson
+Walt Whitman
+Henry James
+Herman Melville
+Edgar Allan Poe
+John Steinbeck
+William Faulkner
+F. Scott Fitzgerald
+James Baldwin
+Chinua Achebe
+Haruki Murakami
+Paulo Coelho
+Antoine de Saint-Exupéry
+Bob Dylan
+John Lennon
+Jim Rohn
+Zig Ziglar
+Stephen Covey
+Tony Robbins
+Sheryl Sandberg
+Michelle Obama
+Serena Williams
+Pelé
+Vince Lombardi
+Babe Ruth
+Yogi Berra
+Wayne Gretzky
+Billie Jean King
+Muhammad Iqbal
+Ibn Sina
+Ibn Arabi
+Al-Farabi
+Omar Khayyam
+Saadi
+Hafez
+Mencius
+Zhuangzi
+Mozi
+Buddha
+Bodhidharma
+Sri Aurobindo
+Ramana Maharshi
+Jiddu Krishnamurti
+Paramahansa Yogananda
+Alan Watts
+Thomas Merton
+Pope Francis
+Pope John Paul II
+Augustine of Hippo
+Thomas Aquinas
+Martin Luther
+Blaise Cendrars
+Sukarno
+Mohammad Hatta
+Sutan Sjahrir
+Pramoedya Ananta Toer
+Abdurrahman Wahid
+Soe Hok Gie
+Joko Widodo
+Kartini
+Tan Malaka
+B. J. Habibie
+Susilo Bambang Yudhoyono
+Megawati Sukarnoputri
+Sri Mulyani Indrawati
+Goenawan Mohamad
+W. S. Rendra
+Chairil Anwar
+Mahathir Mohamad
+Jose Rizal
+Ho Chi Minh
+Aung San Suu Kyi
+Deng Xiaoping
+Sun Yat-sen
+Mao Zedong
+Hirohito
+Akira Kurosawa
+Hayao Miyazaki
+Rigoberta Menchú
+Eduardo Galeano
+Isabel Allende
+Che Guevara
+Fidel Castro
+Vaclav Havel
+Lech Wałęsa
+Elie Wiesel
+Anne Frank
+Primo Levi
+Alexander Solzhenitsyn
+Anton Chekhov
+Boris Pasternak
+Nikolai Gogol
+Honoré de Balzac
+Gustave Flaubert
+Marcel Proust
+Charles Baudelaire
+Jean de La Fontaine
+François de La Rochefoucauld
+Denis Diderot
+Montesquieu
+Edmund Burke
+Thomas Carlyle
+John Ruskin
+Matthew Arnold
+Robert Louis Stevenson
+Rudyard Kipling
+G. K. Chesterton
+Agatha Christie
+Arthur Conan Doyle
+H. G. Wells
+Jack London
+John Muir
+Aldo Leopold
+David Attenborough
+Jacques Cousteau
+Linus Pauling
+Enrico Fermi
+J. Robert Oppenheimer
+Rosalind Franklin
+Barbara McClintock
+Lise Meitner
+Peter Thiel
+Satya Nadella
+Tim Cook
+Larry Page
+Mark Zuckerberg
+Jack Welch
+Lee Iacocca
+Sam Walton
+Ray Kroc
+Howard Schultz
+Richard Branson
+Indra Nooyi
+Ruth Bader Ginsburg
+Gloria Steinem
+Betty Friedan
+Audre Lorde
+bell hooks
+Angela Davis
+Amartya Sen
+Muhammad Yunus
+Joseph Stiglitz
+Milton Friedman
+John Maynard Keynes
+Friedrich Hayek
+Ayn Rand
+Yuval Noah Harari
+Malcolm Gladwell
+Daniel Kahneman
+Abraham Maslow
+Erich Fromm

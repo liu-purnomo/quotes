@@ -1,3 +1,5 @@
+import { authorPhotos } from './authorPhotos';
+import type { AuthorPhoto } from './authorPhotos';
 import { abuNawas } from './quotes/abu-nawas';
 import { alFarabi } from './quotes/al-farabi';
 import { alGhazali } from './quotes/al-ghazali';
@@ -40,6 +42,7 @@ export interface Quote {
   source?: string;
   original?: string;
   citation?: string;
+  photo?: AuthorPhoto;
 }
 
 interface QuoteWithoutId {
@@ -88,8 +91,15 @@ const rawQuotes: QuoteWithoutId[] = [
   ...terjemahan,
 ];
 
+// Older entries carry the book title after the name: "Tere Liye, Pulang"
+function splitBookTitle(quote: QuoteWithoutId): QuoteWithoutId {
+  const match = quote.author.match(/^(Tere Liye), (.+)$/);
+  return match ? { ...quote, author: match[1], citation: match[2] } : quote;
+}
+
 // Auto-generate IDs
-export const quotes: Quote[] = rawQuotes.map((quote, index) => ({
+export const quotes: Quote[] = rawQuotes.map(splitBookTitle).map((quote, index) => ({
   ...quote,
   id: index + 1,
+  photo: authorPhotos[quote.author],
 }));

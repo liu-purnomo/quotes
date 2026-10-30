@@ -12,12 +12,15 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import AuthorAvatar from '@/components/AuthorAvatar';
+import type { AuthorPhoto } from '@/data/authorPhotos';
 
 interface Quote {
   id: number;
   text: string;
   author: string;
   category: string;
+  photo?: AuthorPhoto;
 }
 
 const themes = [
@@ -271,14 +274,15 @@ export default function Home() {
                 &ldquo;{quote.text}&rdquo;
               </motion.blockquote>
 
-              <motion.p
-                className="text-2xl text-white/80 mb-3 font-medium"
+              <motion.div
+                className="flex items-center justify-center gap-3 mb-3"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                — {quote.author}
-              </motion.p>
+                <AuthorAvatar name={quote.author} photo={quote.photo} size={48} />
+                <p className="text-2xl text-white/80 font-medium">{quote.author}</p>
+              </motion.div>
 
               <motion.p
                 className="text-base text-white/50 uppercase tracking-widest font-medium"

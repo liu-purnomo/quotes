@@ -20,7 +20,16 @@ export async function GET(request: Request) {
       });
     }
 
-    const authors = Array.from(new Set(quotes.map(quote => quote.author))).sort();
+    const { searchParams } = new URL(request.url);
+    const names = Array.from(new Set(quotes.map(quote => quote.author))).sort();
+
+    // ?detail=true adds quote counts and portraits for richer pickers
+    const authors = searchParams.get('detail') === 'true'
+      ? names.map(name => {
+          const authorQuotes = quotes.filter(quote => quote.author === name);
+          return { name, count: authorQuotes.length, photo: authorQuotes[0].photo };
+        })
+      : names;
 
     return NextResponse.json({
       status: 'SUCCESS',
