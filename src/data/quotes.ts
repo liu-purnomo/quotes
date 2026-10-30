@@ -26,6 +26,7 @@ import { steveJobs } from './quotes/steve-jobs';
 import { sunTzu } from './quotes/sun-tzu';
 import { tanMalaka } from './quotes/tan-malaka';
 import { tereLiye } from './quotes/tere-liye';
+import { terjemahan } from './quotes/terjemahan';
 import { terverifikasi } from './quotes/terverifikasi';
 import { thales } from './quotes/thales';
 import { ustadzAdiHidayat } from './quotes/ustadz-adi-hidayat';
@@ -37,6 +38,8 @@ export interface Quote {
   author: string;
   category: string;
   source?: string;
+  original?: string;
+  citation?: string;
 }
 
 interface QuoteWithoutId {
@@ -44,6 +47,8 @@ interface QuoteWithoutId {
   author: string;
   category: string;
   source?: string;
+  original?: string;
+  citation?: string;
 }
 
 const rawQuotes: QuoteWithoutId[] = [
@@ -80,6 +85,7 @@ const rawQuotes: QuoteWithoutId[] = [
   ...socrates,
   // Keep last: appending here leaves existing quote IDs unchanged
   ...terverifikasi,
+  ...terjemahan,
 ];
 
 // Auto-generate IDs

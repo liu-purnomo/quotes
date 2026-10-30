@@ -13,6 +13,8 @@ interface Quote {
   author: string;
   category: string;
   source?: string;
+  original?: string;
+  citation?: string;
 }
 
 interface NavigationQuote {
@@ -226,6 +228,13 @@ export default function QuoteDetailPage() {
               <p className="text-white/60 capitalize text-sm sm:text-base lg:text-lg">
                 {quote.category}
               </p>
+              {quote.original && (
+                <div className="mt-4 text-sm text-white/60">
+                  <p className="font-medium text-white/70">Terjemahan oleh Quotes. Teks asli:</p>
+                  <p className="mt-1 italic">&ldquo;{quote.original}&rdquo;</p>
+                  {quote.citation && <p className="mt-1 text-xs text-white/50">{quote.citation}</p>}
+                </div>
+              )}
             </motion.div>
 
             {/* Action Buttons */}
