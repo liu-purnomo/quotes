@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Replaced `next lint` with the ESLint CLI and moved to native flat config
 - Raised the minimum Node.js version to 20.9
 
+### Added
+- Quote image editor on the quote detail page: feed, portrait and story sizes, photo upload stored only in browser IndexedDB, Unsplash and Pixabay search, draggable text, brightness and color overlays, and text effects
+
 ## [0.2.0] - 2025-01-15
 
 ### Added

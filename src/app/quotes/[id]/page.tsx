@@ -5,6 +5,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight, Copy, Download, Share2 } from 'lu
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import QuoteImageEditor from '@/components/QuoteImageEditor';
 
 interface Quote {
   id: number;
@@ -26,6 +27,7 @@ export default function QuoteDetailPage() {
   const [copied, setCopied] = useState(false);
   const [prevQuote, setPrevQuote] = useState<NavigationQuote | null>(null);
   const [nextQuote, setNextQuote] = useState<NavigationQuote | null>(null);
+  const [editorOpen, setEditorOpen] = useState(false);
 
   useEffect(() => {
     const fetchQuote = async () => {
@@ -91,12 +93,6 @@ export default function QuoteDetailPage() {
     } else {
       copyToClipboard();
     }
-  };
-
-  const downloadAsImage = () => {
-    // This would implement download as image functionality
-    // For now, we'll just copy to clipboard
-    copyToClipboard();
   };
 
   if (loading) {
@@ -255,7 +251,7 @@ export default function QuoteDetailPage() {
               </button>
 
               <button
-                onClick={downloadAsImage}
+                onClick={() => setEditorOpen(true)}
                 className="flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-purple-500/30 to-pink-500/30 backdrop-blur-xl border border-purple-400/40 text-white hover:from-purple-500/40 hover:to-pink-500/40 transition-all duration-200 font-medium text-sm sm:text-base"
               >
                 <Download className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -345,6 +341,10 @@ export default function QuoteDetailPage() {
           <p className="text-white/50 text-sm">Kutipan #{quote.id}</p>
         </motion.div>
       </div>
+
+      {editorOpen && (
+        <QuoteImageEditor quote={quote} onClose={() => setEditorOpen(false)} />
+      )}
     </div>
   );
 }

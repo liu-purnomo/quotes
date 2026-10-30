@@ -46,6 +46,8 @@ class RateLimiter {
 // Create rate limiter instances
 export const quotesRateLimit = new RateLimiter(30, 60000); // 30 requests per minute
 export const randomQuotesRateLimit = new RateLimiter(60, 60000); // 60 requests per minute (for slideshow)
+export const imageSearchRateLimit = new RateLimiter(30, 60000); // 30 requests per minute
+export const imageProxyRateLimit = new RateLimiter(120, 60000); // 120 requests per minute (each search loads many thumbnails)
 
 export function getClientIP(request: Request): string {
   // Get IP from various headers (for when behind proxy)

@@ -119,6 +119,18 @@
    http://localhost:3000
    ```
 
+### 🖼️ Quote Image Editor
+
+Tombol **Download** di halaman detail kutipan membuka editor gambar untuk Instagram dan media sosial lain. Upload foto dan latar gradien langsung bisa dipakai. Foto yang di-upload hanya disimpan di IndexedDB browser pengguna (maksimal 12 foto terbaru), tidak dikirim ke server dan tidak butuh database.
+
+Pencarian foto butuh minimal satu API key:
+
+```bash
+cp .env.example .env.local
+```
+
+Isi `UNSPLASH_ACCESS_KEY` ([Unsplash Developers](https://unsplash.com/developers)) dan/atau `PIXABAY_API_KEY` ([Pixabay API](https://pixabay.com/api/docs/)), lalu restart server.
+
 ### 🏗️ Build for Production
 
 ```bash
