@@ -1460,6 +1460,18 @@ export const authorPhotos: Record<string, AuthorPhoto> = {
     license: 'Public domain',
     artist: 'Uncredited',
   },
+  'Ustadz Abdul Somad': {
+    url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Ustaz_Abdul_Somad_Pendakwah_Pemersatu_Umat_-_cropped.jpg/250px-Ustaz_Abdul_Somad_Pendakwah_Pemersatu_Umat_-_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail',
+    page: 'https://commons.wikimedia.org/w/index.php?curid=87491294',
+    license: 'Public domain',
+    artist: 'Official Website of The Ministry of Religious Affairs Indonesia',
+  },
+  'Ustadz Adi Hidayat': {
+    url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Adi_Hidayat_di_Bandung.jpg/250px-Adi_Hidayat_di_Bandung.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail',
+    page: 'https://commons.wikimedia.org/w/index.php?curid=85228181',
+    license: 'Public domain',
+    artist: 'Government of Bandung city, Indonesia',
+  },
   'Victor Hugo': {
     url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg/250px-Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail',
     page: 'https://commons.wikimedia.org/w/index.php?curid=28384247',

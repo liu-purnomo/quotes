@@ -31,6 +31,7 @@ import { tereLiye } from './quotes/tere-liye';
 import { terjemahan } from './quotes/terjemahan';
 import { terverifikasi } from './quotes/terverifikasi';
 import { thales } from './quotes/thales';
+import { ulama } from './quotes/ulama';
 import { ustadzAdiHidayat } from './quotes/ustadz-adi-hidayat';
 import { waltDisney } from './quotes/walt-disney';
 
@@ -97,9 +98,20 @@ function splitBookTitle(quote: QuoteWithoutId): QuoteWithoutId {
   return match ? { ...quote, author: match[1], citation: match[2] } : quote;
 }
 
+// IDs come from array position, so this block has a fixed range of its own:
+// new translations can then keep growing without moving these quotes
+const ULAMA_FIRST_ID = 10001;
+
 // Auto-generate IDs
-export const quotes: Quote[] = rawQuotes.map(splitBookTitle).map((quote, index) => ({
-  ...quote,
-  id: index + 1,
-  photo: authorPhotos[quote.author],
-}));
+export const quotes: Quote[] = [
+  ...rawQuotes.map(splitBookTitle).map((quote, index) => ({
+    ...quote,
+    id: index + 1,
+    photo: authorPhotos[quote.author],
+  })),
+  ...ulama.map((quote, index) => ({
+    ...quote,
+    id: ULAMA_FIRST_ID + index,
+    photo: authorPhotos[quote.author],
+  })),
+];

@@ -113,7 +113,7 @@
   "title": "Alan Turing",
   "host": "id.wikipedia.org",
   "file": "Alan Turing (1951) (crop).jpg",
-  "description": "Ilmuwan komputer Inggris (1912–1954)",
+  "description": "ilmuwan komputer Inggris (1912–1954)",
   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Alan_Turing_%281951%29_%28crop%29.jpg/250px-Alan_Turing_%281951%29_%28crop%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "page": "https://commons.wikimedia.org/w/index.php?curid=158304654",
   "license": "Public domain",
@@ -2914,6 +2914,30 @@
   "page": "https://commons.wikimedia.org/w/index.php?curid=46962567",
   "license": "Public domain",
   "artist": "Uncredited"
+ },
+ {
+  "author": "Ustadz Abdul Somad",
+  "qid": "Q43131822",
+  "title": "Abdul Somad",
+  "host": "id.wikipedia.org",
+  "file": "Ustaz Abdul Somad Pendakwah Pemersatu Umat - cropped.jpg",
+  "description": "pendakwah dan ulama asal Indonesia",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Ustaz_Abdul_Somad_Pendakwah_Pemersatu_Umat_-_cropped.jpg/250px-Ustaz_Abdul_Somad_Pendakwah_Pemersatu_Umat_-_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/w/index.php?curid=87491294",
+  "license": "Public domain",
+  "artist": "Official Website of The Ministry of Religious Affairs Indonesia"
+ },
+ {
+  "author": "Ustadz Adi Hidayat",
+  "qid": "Q65210798",
+  "title": "Adi Hidayat",
+  "host": "id.wikipedia.org",
+  "file": "Adi Hidayat di Bandung.jpg",
+  "description": "mubaligh dan ulama asal Indonesia (lahir 1984)",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Adi_Hidayat_di_Bandung.jpg/250px-Adi_Hidayat_di_Bandung.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/w/index.php?curid=85228181",
+  "license": "Public domain",
+  "artist": "Government of Bandung city, Indonesia"
  },
  {
   "author": "Victor Hugo",

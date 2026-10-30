@@ -9,7 +9,13 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(HERE, '../../src/data/quotes');
 const USER_AGENT = 'quotes-app/1.0 (https://github.com/liu-purnomo/quotes)';
 const FREE_LICENSE = /^(public domain|pd\b|pdm|cc0|cc[ -]by(-sa)?[ -]\d|no restrictions|copyrighted free use|godl)/i;
-const TITLE_ALIASES = { Seneca: 'Seneca the Younger', 'Dalai Lama': '14th Dalai Lama' };
+const TITLE_ALIASES = {
+  Seneca: 'Seneca the Younger',
+  'Dalai Lama': '14th Dalai Lama',
+  'Ustadz Adi Hidayat': 'Adi Hidayat',
+  'Ustadz Abdul Somad': 'Abdul Somad',
+  'KH Zainuddin MZ': 'Zainuddin M.Z.',
+};
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

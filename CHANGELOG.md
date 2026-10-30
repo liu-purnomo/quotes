@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 259 source-checked quotes from 145 public figures, with a source link on the quote detail page
 - Indonesian translations of sourced quotes from English Wikiquote, shown with the original text
 - Author portraits from Wikimedia Commons with license credit, and a redesigned /quotes page
+- Source-checked quotes from Ustadz Adi Hidayat, Ustadz Abdul Somad and KH Zainuddin MZ
 
 ## [0.2.0] - 2025-01-15
 

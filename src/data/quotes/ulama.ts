@@ -1,0 +1,117 @@
+// Direct speech reported by news outlets, checked against the page in `source`.
+export const ulama = [
+  {
+    text: 'Umat Islam itu selalu dilatih dalam segala keadaan. Saat bahagia, dilatih bersyukur. Saat berduka, dilatih bersabar.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'kehidupan',
+    source: 'https://www.liputan6.com/islami/read/5995918/orang-beriman-itu-hidupnya-mengagumkan-begini-penjelasan-ustadz-adi-hidayat',
+  },
+  {
+    text: 'Sabar adalah cara untuk mengubah setiap kesulitan menjadi peluang untuk lebih dekat kepada Allah.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'spiritual',
+    source: 'https://www.liputan6.com/islami/read/5707190/bagaimanakah-memaknai-sabar-ini-penjelasan-ustadz-adi-hidayat',
+  },
+  {
+    text: 'Jangan biarkan emosi menguasai diri kita. Jadilah bijak dalam setiap langkah.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'kehidupan',
+    source: 'https://www.liputan6.com/islami/read/5707190/bagaimanakah-memaknai-sabar-ini-penjelasan-ustadz-adi-hidayat',
+  },
+  {
+    text: 'Kalau sekadar gerakan tanpa pemahaman, sholat tidak akan membentuk karakter yang baik.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'spiritual',
+    source: 'https://www.liputan6.com/islami/read/5776820/rajin-sholat-tapi-perilakunya-buruk-kenapa-simak-penjelasan-ustadz-adi-hidayat',
+  },
+  {
+    text: 'Sholat adalah inti amalan kita yang bisa mengubah alur kehidupan dunia dan akhirat.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'spiritual',
+    source: 'https://www.liputan6.com/islami/read/5939847/hidup-penuh-kesulitan-istiqamah-lakukan-ini-agar-diberi-kemudahan-kata-ustadz-adi-hidayat',
+  },
+  {
+    text: 'Seperti halnya otot yang harus dilatih agar kuat, hati juga perlu dilatih untuk khusyuk dalam sholat.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'spiritual',
+    source: 'https://www.liputan6.com/islami/read/5839477/bocoran-dari-ustadz-adi-hidayat-agar-sholat-bisa-nikmat-mau',
+  },
+  {
+    text: 'Sholat itu bukan hanya soal gerakan atau bacaan, tetapi tentang kehadiran hati yang tulus di hadapan Allah.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'spiritual',
+    source: 'https://www.liputan6.com/islami/read/5839477/bocoran-dari-ustadz-adi-hidayat-agar-sholat-bisa-nikmat-mau',
+  },
+  {
+    text: 'Jangan biarkan sholat menjadi rutinitas yang hanya menuntaskan kewajiban. Jadikan sholat sebagai kesempatan untuk berkomunikasi dengan Allah.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'spiritual',
+    source: 'https://www.liputan6.com/islami/read/5839477/bocoran-dari-ustadz-adi-hidayat-agar-sholat-bisa-nikmat-mau',
+  },
+  {
+    text: 'Cara paling gampang mengatasi musibah itu: pasrah dan serahkan semua itu dengan menerima sebagai ketetapan Allah, apa pun bentuknya. Lalu cari solusi yang baik sesuai petunjuk. Itulah isi sabar yang sesungguhnya.',
+    author: 'Ustadz Adi Hidayat',
+    category: 'kehidupan',
+    source: 'https://cahaya.kompas.com/aktual/26H18072300590/harta-jabatan-dan-ilmu-juga-bisa-jadi-ujian-ini-penjelasan-ustaz-adi-hidayat',
+  },
+  {
+    text: 'Sebetulnya hidup ini tidak terlalu susah. Yang susah itu mikirin omongan orang, jadi jangan dipikir.',
+    author: 'Ustadz Abdul Somad',
+    category: 'kehidupan',
+    source: 'https://rejogja.republika.co.id/berita/tlr1b1291/ceritakan-perjuangannya-saat-belajar-ustadz-abdul-somad-ajak-anak-muda-tak-takut-gagal',
+  },
+  {
+    text: 'Iman anak muda terjaga dengan tiga hal. Yang pertama, pergaulan jaga baik-baik, yang kedua ibadahnya jangan ditinggal, yang ketiga cita-citanya jelas bahagiakan orang tua karena itu InsyaAllah menjaga berkah selalu sukses.',
+    author: 'Ustadz Abdul Somad',
+    category: 'spiritual',
+    source: 'https://rejogja.republika.co.id/berita/tlpdic291/tabligh-akbar-di-uii-ustaz-abdul-somad-ingatkan-anak-muda-jaga-iman',
+  },
+  {
+    text: 'Meski seorang anak menggendong ibunya pulang pergi dari Brunei untuk menunaikan haji, tidak akan terbalas jasa ibu.',
+    author: 'Ustadz Abdul Somad',
+    category: 'cinta',
+    source: 'https://khazanah.republika.co.id/berita/pw2tp3320/3-pesan-abdul-somad-saat-khutbah-idul-adha-di-brunei',
+  },
+  {
+    text: 'Sambungkanlah kembali tali pertautan rahim dengan siapapun yang memutuskannya. Itulah silaturahim sesungguhnya.',
+    author: 'Ustadz Abdul Somad',
+    category: 'kehidupan',
+    source: 'https://khazanah.republika.co.id/berita/pw2tp3320/3-pesan-abdul-somad-saat-khutbah-idul-adha-di-brunei',
+  },
+  {
+    text: 'Kalau kita ingin anak kita ke depannya memahami seluk beluk kehidupan, tidak lupa dengan dunia, selalu ingat dengan akhirat maka ia harus mendalami Al-Qur\'an.',
+    author: 'Ustadz Abdul Somad',
+    category: 'pendidikan',
+    source: 'https://www.detik.com/edu/detikpedia/d-6045324/detikkultum-ustaz-abdul-somad-pahami-seluk-beluk-ilmu-kehidupan-dengan-al-quran',
+  },
+  {
+    text: 'Biarkan anak kita sekolah di jurusan yang dia suka, apapun itu. Ilmu tentang geologi, planet bumi, dan lain sebagainya karena itu adalah bagian dari ayat ayat Allah SWT.',
+    author: 'Ustadz Abdul Somad',
+    category: 'pendidikan',
+    source: 'https://www.detik.com/edu/detikpedia/d-6045324/detikkultum-ustaz-abdul-somad-pahami-seluk-beluk-ilmu-kehidupan-dengan-al-quran',
+  },
+  {
+    text: 'Ke mana saja, iman harus ngikut. Kalau mau keluar, iman jangan ditinggal di laci. Jangan di masjid kalem, di pasar curang dan di kantor nyolong.',
+    author: 'KH Zainuddin MZ',
+    category: 'spiritual',
+    source: 'https://www.nu.or.id/fragmen/10-tahun-sudah-dai-sejuta-umat-itu-berpulang-GFEo1',
+  },
+  {
+    text: 'Kalau di masa muda kita hanya santai, masa dewasa akan penuh kebingungan.',
+    author: 'KH Zainuddin MZ',
+    category: 'motivasi',
+    source: 'https://www.liputan6.com/islami/read/5776416/hidup-seperti-ini-membawa-ketenangan-dan-masa-depan-cerah-nasihat-almaghfurlah-kh-zainuddin-mz',
+  },
+  {
+    text: 'Kalau hari tua kita terlunta-lunta, itu akibat dari kesalahan kita sendiri.',
+    author: 'KH Zainuddin MZ',
+    category: 'kehidupan',
+    source: 'https://www.liputan6.com/islami/read/5776416/hidup-seperti-ini-membawa-ketenangan-dan-masa-depan-cerah-nasihat-almaghfurlah-kh-zainuddin-mz',
+  },
+  {
+    text: 'Saya tetap konsekuen pada khitah. Saya tidak mengenal tarif-tarifan.',
+    author: 'KH Zainuddin MZ',
+    category: 'kepemimpinan',
+    source: 'https://khazanah.republika.co.id/berita/dunia-islam/islam-digest/19/02/15/pmz2ni458-kh-zainuddin-mz-sang-dai-sejuta-umat-dari-betawi-4',
+  },
+];
